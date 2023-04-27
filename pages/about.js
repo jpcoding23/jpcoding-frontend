@@ -4,9 +4,8 @@ export default function Home() {
   return (
     <>
       <h1 className="title">
-        Read 
-        <Link href="/posts/first-post"> this page!</Link><br/>
-        <Link href="/about"> About me</Link>
+      About Me <br/> 
+        <Link href="/"> return back!</Link>
       </h1>
     </>
   )
