@@ -8,20 +8,20 @@
 //     // includePaths: [path.join(__dirname, 'styles')],
 //   },
 // }
-require('dotenv').config({ path: './.env' })
+// require('dotenv').config({ path: './.env' })
 
 const webpack = require('webpack')
-const { parsed: myEnv } = require('dotenv').config({
-  path:'./.env'
-})
+
 module.exports={
   withVideos : require('next-videos'),
   nextConfig : {
     reactStrictMode: true  
   },
-  webpack(config) {
-    config.plugins.push(new webpack.EnvironmentPlugin(myEnv))
-    return config
+
+env: {
+  'FULLNAME':process.env.NEXT_PUBLIC_FULLNAME,
+  'EMAIL':process.env.NEXT_PUBLIC_EMAIL,
+  'LINKEDIN_URL':process.env.NEXT_PUBLIC_LINKEDIN_URL
 }
 }
 

@@ -9,7 +9,7 @@ export default function Home() {
 
             <div className='container'>
             <h1 className='heading-form'>Contact Me</h1> 
-            <div classname='contact'>
+            <div className='contact'>
             <form action="#" className='form__contact'>  
         <div className="form__group">
             <input type="text" className="form__input" placeholder="Full name" id="name" required/>
