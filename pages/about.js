@@ -11,7 +11,7 @@ export default function Home() {
           <div className='container'>
            <div className='box'> 
           <h2 className='heading__about about--h2'>Resume: {process.env.FULLNAME}</h2>
-          <h3 className='heading__about about--h3'> {process.env.EMAIL} - <a href= {process.env.LINKEDIN_URL}>LinkendIn</a> - Irvington, NJ</h3><br/>
+          <h3 className='heading__about about--h3'> {process.env.EMAIL} - <Link href= {process.env.LINKEDIN_URL}className='linkedin'>LinkendIn</Link> - Irvington, NJ</h3><br/>
           <h3 className='heading__about about--h3'>Summary</h3>
           <p className='about--p'>Graduated from the University of Bridgeport <br/>
 Completed General Assembly’s coding Bootcamp<br/>
