@@ -21,7 +21,8 @@ module.exports={
 env: {
   'FULLNAME':process.env.NEXT_PUBLIC_FULLNAME,
   'EMAIL':process.env.NEXT_PUBLIC_EMAIL,
-  'LINKEDIN_URL':process.env.NEXT_PUBLIC_LINKEDIN_URL
+  'LINKEDIN_URL':process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  'BACKEND_URL':process.env.NEXT_PUBLIC_BACKEND_URL
 }
 }
 

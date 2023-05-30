@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <Layout >
       
-        <section className='about'>
+        <section className='about dark'>
           <div className='container'>
-            
+           <div className='box'> 
           <h2 className='heading__about about--h2'>Resume: {process.env.FULLNAME}</h2>
           <h3 className='heading__about about--h3'> {process.env.EMAIL} - <a href= {process.env.LINKEDIN_URL}>LinkendIn</a> - Irvington, NJ</h3><br/>
           <h3 className='heading__about about--h3'>Summary</h3>
@@ -32,6 +32,7 @@ Productivity Slack Zoom Service-Now Trello<br/> Microsoft Office Google Docs<br/
           <p className='about--p'>General Assembly: Web Development Immersive program, 26 Week Coding Bootcamp <br/>  February, 2022 - August, 2022<br/> <br/>
 University of Bridgeport: Bachelors of Science Computer Science, minor in Mathematics <br/> August, 2013 - August, 2018 
 </p>
+</div>
 </div>
         </section>
      

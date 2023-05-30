@@ -26,7 +26,7 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
     const fetcher = url => axios.get(url).then(res => res.data)
-    const { data, error, isLoading } = useSWR('http://localhost:8080/api/blogs/1', fetcher); 
+    const { data, error, isLoading } = useSWR(process.env.BACKEND_URL, fetcher); 
     
     
     if (error) return( 
