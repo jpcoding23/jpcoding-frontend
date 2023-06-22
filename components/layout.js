@@ -27,7 +27,7 @@ export default function Layout({ children, home }) {
               <Link href="/about" className='navigation__link'>Resume</Link>
               <Link href="/blogs" className='navigation__link'>Blogs</Link>
               <Link href="/projects" className='navigation__link'>Projects</Link>
-              <Link href="https://github.com/jpcoding23" className='navigation__link'>Github</Link>
+              <Link href="https://github.com/jpcoding23" className='navigation__link' target='_blank'>Github</Link>
               </ul>
           </nav>
        {home ? (<>
