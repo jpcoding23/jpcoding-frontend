@@ -35,7 +35,6 @@ export const getStaticPaths = async () => {
   }
   const paths =await res.data.map((blog) => (
     {
-    
     params: { 
       id: blog.id.toString(),
     },
@@ -51,7 +50,7 @@ export async function getStaticProps({ params }) {
   // If the route is like /posts/1, then params.id is 1
    console.log(params.id)
   const url=process.env.BACKEND_URL + "blogs/" + params.id
-  const res = await axios.get(process.env.BACKEND_URL + "blogs/" + params.id)
+  const res = await axios.get(process.env.BACKEND_URL + params.id)
   const blog=res.data
  
   // if (!res) {
