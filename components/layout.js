@@ -34,7 +34,7 @@ export default function Layout({ children, home }) {
           <div className='container'>
           <div className="bg-video">
           <video className="bg-video__content" autoPlay muted loop>
-            <source src={('images/sunset.mp4')} type="video/mp4" />
+            <source src={('/images/sunset.mp4')} type="video/mp4" />
             
             Browser not supported!
           </video>  
@@ -59,13 +59,13 @@ export default function Layout({ children, home }) {
           <div className='container'>
               <div className="bg-video-light">
               <video className="bg-video__content"  muted >
-                <source src={('images/sunset.mp4')} type="video/mp4" />
+                <source src='/images/sunset.mp4' type="video/mp4" />
                 
                 Browser not supported!
               </video>  
             </div>
               <main>{children}</main>
-              </div>
+            </div>
           </>
           
        )}

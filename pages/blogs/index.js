@@ -1,18 +1,12 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import Script from 'next/script';
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 import axios from 'axios'
 import useSWR from "swr"
-import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../../lib/posts';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import {useFormatter} from 'next-intl';
 
 
 export async function getStaticProps() {
@@ -25,16 +19,28 @@ export async function getStaticProps() {
   }
 
 export default function Home({ allPostsData }) {
-    const fetcher = url => axios.get(url).then(res => res.data)
+  const config = {
+    headers:{
+      'Content-Type': 'application/json',
+      "vary":"Access-Control-Request-Method",
+      "vary":"Access-Control-Request-Headers",
+      "vary":"origin"
+    }
+  };
+    const fetcher = url => axios.get(url,config).then(res => res.data)
+
+   
     const { data, error, isLoading } = useSWR(process.env.BACKEND_URL, fetcher); 
-    
+    //  console.log(data);
+    if(error) console.log(error);
     
     if (error) return( 
       <Layout >
     <section className='blogs'>
+      <div className='container'>
         <h1 className='heading blogs__heading'>Blogs</h1><br/>
          {allPostsData.map(({ id, date, title,description,link }) => (
-          <>
+          <div key={title}>
            <div  className='card__blogs'>
             <h2 className='card__heading'> <Link className='card__link' href={link}>{title}</Link></h2>
              <p className='card__heading--date'>{date}</p>
@@ -46,22 +52,30 @@ export default function Home({ allPostsData }) {
              <p className='card__heading--desc'> {description}</p>
            </div>
            
-           </>
+           </div>
            
          ))}
+         </div>
             </section>
         </Layout>)
         
     if (isLoading) return <Layout className='blogs'><h2>Loading...</h2></Layout>
-      return (
-          <Layout className='blogs'>
-           <p>{data.title}</p> 
-           <p>{data.description}</p> 
-           <p>{data.article}</p> 
-           <p>{data.dateCreated}</p> 
-
-            
-  
-          </Layout>
+     
+    return (
+        <Layout >
+        <section className='blogs'>
+            <h1 className='heading blogs__heading'>Blogs</h1><br/>
+             {data.map((blog) => (
+              <div key={blog.id}>
+               <div  className='card__blogs'>
+                <h2 className='card__heading'> <Link className='card__link' href={"blogs/"+blog.id} >{blog.title}</Link></h2>
+                 <p className='card__heading--date'>{Intl.DateTimeFormat('en-US').format(blog.dateCreated)}</p>
+                 <p className='card__heading--desc'> {blog.description}</p>
+               </div>  
+               </div>
+               
+             ))}
+                </section>
+            </Layout>
       )
 }

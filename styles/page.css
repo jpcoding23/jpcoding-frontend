@@ -139,8 +139,25 @@
  /* text-align: center; */
  width: 40%;  
  height: auto;
- transform: translate(45%,-50%); 
+ transform: translate(45%,-40%); 
  font-size: 1rem;
+}
+.blogs__box{
+    background-color:  rgb(247, 139, 16,.7);
+    color: white;
+    width: 100%;
+    display: block;
+    height: 100%;
+    margin: 3%;
+    top: 0;
+    left: 0;
+    min-height: 70vh;
+    margin-top: 10%;
+    /* transform: translate(0%,5%); */
+    /* text-align: center; */
+}
+.blogs__p{
+    font-size: 1rem;
 }
 .card__blogs{
     background-color:  rgb(247, 139, 16,.7);
@@ -149,9 +166,14 @@
     display: block;
     height: 50%;
     margin: 3%;
-    min-height: 20vh;
-    transform: translate(35%,20%);
+    top: 0;
+    left: 0;
+    /* min-height: 20vh; */
+    transform: translate(35%,40%);
     /* text-align: center; */
+}
+.card__blogs:last-child{
+    margin-bottom: 1rem;
 }
 .card-content__blogs{
     background-color: transparent;
