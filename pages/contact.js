@@ -1,16 +1,27 @@
 import Link from 'next/link';
 import Layout, { siteTitle } from '../components/layout';
+import LightLayout from '@/components/Layouts/LightLayout';
 
 export default function Home() {
   return (
-    <Layout >
-        <section className='contact'>
+    <LightLayout>
+        {/* <section className='contact'> */}
         {/* <div className='row'> */}
 
-            <div className='container'>
-            <h1 className='heading-form'>Contact Me</h1> 
-            <div className='contact'>
-            <form action="#" className='form__contact'>  
+            <div className='contact '>
+            <h1 className='heading-form text-medium'>Contact Me</h1> 
+            <div className='contact__container'>
+                <ul className='contact__links'>
+                    <Link href={process.env.LINKEDIN_URL} className='contact__link text-medium' target='_blank'>LinkedIn</Link> <br/>  <br/>   
+                    <Link href={process.env.NEXT_PUBLIC_DISCORD_URL}  className='contact__link text-medium' target='_blank'>Discord</Link>  <br/>  <br/>  
+                    <Link href={process.env.NEXT_PUBLIC_SLACK_URL} className='contact__link text-medium' target='_blank'>Slack</Link>
+                   
+                </ul>
+            </div>
+            <h3 className='heading heading-tertiary contact__email'>{process.env.EMAIL}</h3> 
+            {/* <div className='contact'> */}
+            {/* <form action="mailto:${process.env.EMAIL}" method="post" enctype="text/plain"
+  className='form__contact'>  
         <div className="form__group">
             <input type="text" className="form__input" placeholder="Full name" id="name" required/>
             <label htmlFor="name" className="form__label">Full name</label>
@@ -34,13 +45,13 @@ export default function Home() {
                 <button className='form__button' >Send</button>
             
 
-        </form>
+        </form>*/}
             </div>
-       
-        </div>
+        
         {/* </div> */}
-        </section>
+        {/* </div> */}
+        {/* </section> */}
      
-    </Layout>
+    </LightLayout>
   )
 }

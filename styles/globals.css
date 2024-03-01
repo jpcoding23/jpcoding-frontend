@@ -2,7 +2,7 @@
 html{
   margin:0;
   /* padding:0 1rem; */
-  border: none;
+  /* border: none; */
   /* max-width: 70vw; */
   /* min-width: 100%; */
   font-family: "Lato",  sans-serif;
@@ -27,7 +27,7 @@ body{
   position: relative;
   z-index: -2;
   /* position: relative; */
-  background-attachment:  scroll;
+  /* background-attachment:  scroll; */
   font-family: "Lato",  sans-serif;
   font-weight: 400;
   line-height: 1.7;
@@ -67,13 +67,13 @@ img {
 footer{
   height: 10%;
   background-color: black;
-  align-items: center;
+  text-align: center;
   position: fixed;
   width: 100%;
   z-index: 5;
   bottom: 0;
   left: 0;
-  font-size: .75rem;
+  /* font-size: .75rem; */
   /* transform: translateX(-1rem); */
   /* margin: 1rem; */
   
@@ -90,38 +90,38 @@ main{
  @keyframes moveInBottom {
   0% {
   opacity: 0;
-  transform: translate(50%,-100%);
+  transform: translate(0%,-100%);
 }
 100% {
   opacity: 1;
-  transform: translate(50%,125%);
+  transform: translate(0%,0%);
 }
  }
 
-@keyframes moveInRight {
+ @keyframes moveInRight {
   0% {
     /* animation-delay:.4s; */
   opacity: 0;
-  transform: translate(35%,300%);
+  transform: translate(45%,0%);
 }
 
 100% {
   opacity: 1;
-  transform: translate(80%,300%);
+  transform: translate(0%,0%);
 }
 }
 
-@keyframes moveInLeft {
+ @keyframes moveInLeft { 
   0% {
   opacity: 0;
-  transform: translate(100%,500%);
+  transform: translate(-45%,0%);
 }
 
 100% {
   opacity: 1;
-  transform: translateX(45%,500%);
+  transform: translateX(0%,0%);
 }
-}
+} 
 @keyframes appear{
   0% {
     opacity: 0;
@@ -135,14 +135,23 @@ main{
 
 }
 
-@media only screen and (max-width: 56.25em) {
+/* @media only screen and (max-width: 56.25em) {
   html {
     font-size: 80%; } }
 
 @media only screen and (max-width: 75em) {
   html {
     font-size: 56.25%; } }
-
-@media only screen and (min-width: 112.5em) {
+*/
+@media only screen and (max-width: 25.5em) {
   html {
-    font-size: 75%; } }
+    font-size: 60%;
+   } 
+   
+  } 
+@media only screen and (max-width: 60.5em) {
+  html {
+    font-size: 100%;
+   } 
+   
+  } 

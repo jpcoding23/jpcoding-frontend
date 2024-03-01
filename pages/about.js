@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import Layout, { siteTitle } from '../components/layout';
+import DarkLayout, { siteTitle } from '../components/Layouts/DarkLayout';
 
 // require("dotenv").config();
 
 export default function Home() {
   return (
-    <Layout >
+    <DarkLayout >
       
-        <section className='about dark'>
-          <div className='container'>
-           <div className='box'> 
+        <section className='about'>
+         
+          
           <h2 className='heading__about about--h2'>Resume: {process.env.FULLNAME}</h2>
           <h3 className='heading__about about--h3'> {process.env.EMAIL} - <Link href= {process.env.LINKEDIN_URL}className='linkedin'>LinkendIn</Link> - Irvington, NJ</h3><br/>
           <h3 className='heading__about about--h3'>Summary</h3>
@@ -29,13 +29,12 @@ Productivity Slack Zoom Service-Now Trello<br/> Microsoft Office Google Docs<br/
           <p className='about--p'>Actively searching for Jr. Java Developer Role / Jr. Software Engineer
 </p>
           <h3 className='heading__about about--h3'>Education</h3>
-          <p className='about--p'>General Assembly: Web Development Immersive program, 26 Week Coding Bootcamp <br/>  February, 2022 - August, 2022<br/> <br/>
-University of Bridgeport: Bachelors of Science Computer Science, minor in Mathematics <br/> August, 2013 - August, 2018 
+          <p className='about--p'>University of Bridgeport: Bachelors of Science Computer Science, minor in Mathematics <br/> August, 2013 - August, 2018 <br/>General Assembly: Web Development Immersive program, 26 Week Coding Bootcamp <br/>  February, 2022 - August, 2022<br/> 
+
 </p>
-</div>
-</div>
+
         </section>
      
-    </Layout>
+    </DarkLayout>
   )
 }

@@ -7,6 +7,7 @@ import useSWR from "swr"
 import { getSortedPostsData } from '../../lib/posts';
 import * as React from 'react';
 import {useFormatter} from 'next-intl';
+import LightLayout from '@/components/Layouts/LightLayout';
 
 
 export async function getStaticProps() {
@@ -35,7 +36,7 @@ export default function Home({ allPostsData }) {
     if(error) console.log(error);
     
     if (error) return( 
-      <Layout >
+      <LightLayout >
     <section className='blogs'>
       <div className='container'>
         <h1 className='heading blogs__heading'>Blogs</h1><br/>
@@ -57,12 +58,12 @@ export default function Home({ allPostsData }) {
          ))}
          </div>
             </section>
-        </Layout>)
+        </LightLayout>)
         
     if (isLoading) return <Layout className='blogs'><h2>Loading...</h2></Layout>
      
     return (
-        <Layout >
+        <LightLayout >
         <section className='blogs'>
             <h1 className='heading blogs__heading'>Blogs</h1><br/>
              {data.map((blog) => (
@@ -76,6 +77,6 @@ export default function Home({ allPostsData }) {
                
              ))}
                 </section>
-            </Layout>
+            </LightLayout>
       )
 }

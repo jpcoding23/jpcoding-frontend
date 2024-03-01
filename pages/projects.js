@@ -6,6 +6,7 @@ import axios from 'axios'
 import useSWR from "swr"
 import utilStyles from '../styles/utils.module.css';
 import { getSortedProjectsData } from '../lib/projects';
+import LightLayout from '@/components/Layouts/LightLayout';
 
 
 export async function getStaticProps() {
@@ -21,23 +22,8 @@ export default function Home({ allPostsData }) {
     const fetcher = url => axios.get(url).then(res => res.data)
     const { data, error, isLoading } = useSWR('http://localhost:8080/api/projects/1', fetcher); 
     
-   
     if (error) return( 
-        <Layout >
-            {/* <section className='projects'>
-            <h2 className={utilStyles.headingLg}>Project</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, link, title, date }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-            </section> */}
+        <LightLayout >
             <section className='projects'>
         <h1 className='heading blogs__heading'>Projects</h1><br/>
          {allPostsData.map(({ id, date, title,description,link }) => (
@@ -57,10 +43,10 @@ export default function Home({ allPostsData }) {
            
          ))}
             </section>
-        </Layout>)
+        </LightLayout>)
     if (isLoading) return <Layout className='blogs'><h2>Loading...</h2></Layout>
       return (
-          <Layout className='blogs'>
+          <LightLayout>
            <p>{data.title}</p> 
            <p>{data.description}</p> 
            <p>{data.article}</p> 
@@ -68,6 +54,6 @@ export default function Home({ allPostsData }) {
 
             
   
-          </Layout>
+          </LightLayout>
       )
 }

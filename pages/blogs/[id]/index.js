@@ -3,12 +3,13 @@ import Layout from '../../../components/layout';
 import Link from 'next/link';
 import axios from 'axios'
 import useSWR from "swr"
+import LightLayout from '@/components/Layouts/LightLayout';
 
 export default function Post({ blog }) {
   // Render post...
   return(
     
-    <Layout>
+    <LightLayout>
       <section className='blogs'>
       <h1 className='heading blogs__heading'>{blog.title}</h1>
       <div className='blogs__box'>
@@ -20,7 +21,7 @@ export default function Post({ blog }) {
         </div>
       </section>
     
-    </Layout>
+    </LightLayout>
   )
 }
  
