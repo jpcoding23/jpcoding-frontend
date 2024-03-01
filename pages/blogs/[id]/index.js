@@ -26,40 +26,38 @@ export default function Post({ blog }) {
 }
  
 export const getStaticPaths = async () => {
-  const res = await axios.get(process.env.BACKEND_URL)
- 
-  //  console.log(res.data)
-  if (!res) {
-    // console.log(res)
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-  const paths =await res.data.map((blog) => (
+  var res=null;
+  var paths=[];
+ try{
+  res = await axios.get(process.env.BACKEND_URL);
+  paths =await res.data.map((blog) => (
     {
     params: { 
       id: blog.id.toString(),
     },
   }));
+  
 
+ }catch(err ){
+  console.log(err);
+ }
+  //  console.log(res.data)
   return { paths, fallback: false }
 
 } 
 
-// This also gets called at build time
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
+  var blog=null;
+  try{
    console.log(params.id)
-  const url=process.env.BACKEND_URL + "blogs/" + params.id
+  // const url=process.env.BACKEND_URL + "blogs/" + params.id
   const res = await axios.get(process.env.BACKEND_URL + params.id)
-  const blog=res.data
- 
-  // if (!res) {
-  //   // This will activate the closest `error.js` Error Boundary
-  //   throw new Error('Failed to fetch data')
-  // }
- 
-  // Pass post data to the page via props
-  return { props: { blog} }
+   blog=res.data
+   return blog;
+  
+}catch(Exception ){
+  console.log(e);
+  throw new Error('Failed to fetch data');
+}
 }
  

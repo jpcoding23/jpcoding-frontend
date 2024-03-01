@@ -33,7 +33,7 @@ export default function Home({ allPostsData }) {
    
     const { data, error, isLoading } = useSWR(process.env.BACKEND_URL, fetcher); 
     //  console.log(data);
-    if(error) console.log(error);
+    // if(error) console.log(error);
     
     if (error) return( 
       <LightLayout >
